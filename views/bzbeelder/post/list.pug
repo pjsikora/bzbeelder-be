@@ -1,0 +1,35 @@
+include ../common/functions
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    //- meta(name="keywords", content= seo_keywords)
+    //- meta(name="description", content= seo_description)
+    title= seo_title
+    include ../common/style
+    include ../common/ga
+
+  body
+    include ../common/header
+
+    .youmightlike
+      .youmightlike__content
+        h2 Recent posts
+        ul
+          each post in relatedPosts
+            li.youmightlike__listelement
+              div.youmightlike__desccontainer
+                span.youmightlike__date= dateToStandardFormat(post.create_date)
+                a(href="/"+post.slug)
+                  span.h3= post.title
+
+    main.homepage_container
+      .homepage_list
+        ul.homepage_list__ul
+          each post in posts
+            li.homepostslist__listelement
+              .homepage_list__date= dateToStandardFormat(post.create_date)
+              a.homepage_list__header(href="/"+post.slug)= post.title
+
+      include ../common/sidebar
+    include ../common/footer

@@ -1,0 +1,23 @@
+include mixins/home_toppost.pug
+include mixins/home_bottompost.pug
+
+doctype html
+html
+    head
+        meta(charset='utf8')
+        meta(name='viewport', content='width=device-width')
+        meta(name='keywords', content= keywords)
+        title= title
+        style
+            include css/style.css
+
+    body
+        include partials/header.pug
+
+        main.homepage_container
+            h1= title
+            p= slug
+            p= create_date
+            div!= content
+
+        include partials/footer.pug

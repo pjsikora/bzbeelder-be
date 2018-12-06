@@ -1,0 +1,8 @@
+mixin home_toppost(post)
+    li.youmightlike__listelement
+        a.youmightlike__imagelink(href= post.slug)
+            img(src='')
+        div.youmightlike__desccontainer
+            span.youmightlike__date= post.create_date
+            a(href= post.slug)
+                span.h3= post.title

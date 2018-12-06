@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="keywords", content= seo_keywords)
+    meta(name="description", content= seo_description)
+
+
+    meta(property="og:type", content="article")
+    meta(property="og:title", content= title)
+    meta(property="og:url", content="http://fedojo.com/image-to-html-table/index.html")
+    meta(property="og:site_name", content="BZBeelder.com")
+    meta(property="og:description", content= seo_description)
+    meta(property="og:updated_time", content="2018-03-12T21:02:21.163Z")
+
+    meta(name="twitter:card", content="summary")
+    meta(name="twitter:title", content= title)
+    meta(name="twitter:description", content= title)
+
+    title= seo_title
+    include ../common/ga
+    include ../common/style-single
+    include ../common/functions
+
+
+  body!= post_content
+    include ../common/header
+    article.single_article
+      .single_article__content
+        h1= title
+        .single_article__authorname
+          .single_article__postatuhoravatar
+          p post by &nbsp
+            span.orange Piotr Sikora &nbsp
+            | on &nbsp
+            strong= dateToStandardFormat(create_date)
+        div.content!= content
+
+    include ../common/footer
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.js")

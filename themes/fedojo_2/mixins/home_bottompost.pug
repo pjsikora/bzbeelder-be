@@ -1,0 +1,6 @@
+mixin home_bottompost(post)
+    li.homepostslist__listelement
+        a(href= post.slug).homepostslist__listelement__img
+            img(src='')
+        p.homepage_list__date= post.create_date
+        a(href= post.slug).homepage_list__header= post.title

@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea
+.DS_Store
+node_modules
+public/*
+uploads/*
+
+access.log
+config.js
+
+# Versionning disabled for big file
+_import/frontenddeveloperdojo.wordpress.posts.xml.xml
+.env

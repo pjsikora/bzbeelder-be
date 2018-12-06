@@ -1,0 +1,30 @@
+include mixins/home_toppost.pug
+include mixins/home_bottompost.pug
+
+doctype html
+html
+    head
+        meta(charset='utf8')
+        meta(name='viewport', content='width=device-width')
+        meta(name='keywords', content= keywords)
+        title= title
+        style
+            include css/style.css
+
+    body
+        include partials/header.pug
+
+        //.youmightlike
+        //    .youmightlike__content
+        //        h2 Recent posts
+        //
+        //        ul
+        //            each post in postsTop
+        //                +home_toppost(post)
+
+        main.homepage_container
+            h1= title
+            p= create_date
+            p= content
+
+        include partials/footer.pug

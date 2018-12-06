@@ -1,0 +1,41 @@
+include mixins/home_toppost.pug
+include mixins/home_bottompost.pug
+
+doctype html
+html
+    head
+        meta(charset='utf8')
+        meta(name='viewport', content='width=device-width')
+        meta(name='keywords', content= keywords)
+        title= title
+        style
+            include css/style.css
+
+
+    body
+        include partials/header.pug
+
+
+        .youmightlike
+            .youmightlike__content
+                h2 Recent posts
+
+                ul
+                    each post in postsTop
+                        +home_toppost(post)
+
+        main.homepage_container
+            .homepage_list
+                ul.homepage_list__ul
+                    each post in posts
+                        +home_bottompost(post)
+
+            aside.home_sidebar
+                .home_book
+                    h3.home_book__header Professional CSS3
+                    span.home_book__author by Piotr Sikora
+                    img(src='./img/bookbox__book.png')
+                    p.home_book__paragraph Do you want to get more knowledge about CSS? Check this book! It will help you to understand CSS and how to practically use it!
+                    a(href='https://www.packtpub.com/web-development/professional-css3') Get the book
+
+        include partials/footer.pug

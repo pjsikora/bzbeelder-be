@@ -1,0 +1,56 @@
+{
+  "name": "node-cms",
+  "version": "0.0.1",
+  "description": "Simple NodeJS based CMS",
+  "main": "app.js",
+  "scripts": {
+    "start": "supervisor app.js",
+    "test": "mocha --recursive core/**/*.spec.js --exit"
+  },
+  "author": "Piotr Sikora / fedojo.com",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^1.3.6",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.2",
+    "compression": "^1.7.0",
+    "concurrently": "^3.6.1",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.15.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^0.13.2",
+    "graphql-tools": "^3.1.1",
+    "html-pdf": "^2.2.0",
+    "jsonwebtoken": "^8.2.0",
+    "minimist": "^1.2.0",
+    "mongoose": "^4.11.5",
+    "mongoose-unique-validator": "^1.0.5",
+    "morgan": "^1.8.2",
+    "multer": "^1.3.1",
+    "path": "^0.12.7",
+    "pdf2html": "^2.4.0",
+    "pug": "^2.0.3",
+    "twig": "^1.12.0",
+    "uuid": "^3.3.2",
+    "xml-parser": "^1.2.1",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-strongloop": "^2.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "husky": "^1.1.4",
+    "mocha": "^4.1.0",
+    "supertest": "^3.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
+  }
+}
