@@ -1,0 +1,899 @@
+// BZBeelder variables
+@import ./base
+
+// Icon fonts
+@import ./assets/fontello-custom/css/fontello
+
+@import ./animate
+
+// Lato font
+@import url('https://fonts.googleapis.com/css?family=Lato')
+
+
+
+// @import '~codemirror/lib/codemirror.css';
+/* You can add global styles to this file, and also import other style files */
+// @import ~@angular/material/prebuilt-themes/indigo-pink
+// @import ~dragula/dist/dragula.css
+// @import ~ng2-dnd/bundles/style.css
+@import ~@swimlane/ngx-dnd/release/index.css
+@import "~ng-snotify/styles/simple"
+
+
+//Bootstrap
+@import ~bootstrap/scss/functions
+@import ~bootstrap/scss/variables
+@import ./sass/bootstrap-variables
+@import ~bootstrap/scss/mixins
+
+// Optional
+@import ~bootstrap/scss/reboot
+@import ~bootstrap/scss/type
+@import ~bootstrap/scss/images
+//@import ~bootstrap/scss/code
+@import ~bootstrap/scss/grid
+//@import ~bootstrap/scss/tables
+@import ~bootstrap/scss/forms
+@import ~bootstrap/scss/buttons
+//@import ~bootstrap/scss/transitions
+//@import ~bootstrap/scss/dropdown
+//@import ~bootstrap/scss/button-group
+@import ~bootstrap/scss/input-group
+//@import ~bootstrap/scss/custom-forms
+//@import ~bootstrap/scss/nav
+//@import ~bootstrap/scss/navbar
+//@import ~bootstrap/scss/card
+//@import ~bootstrap/scss/breadcrumb
+//@import ~bootstrap/scss/pagination
+//@import ~bootstrap/scss/badge
+//@import ~bootstrap/scss/jumbotron
+//@import ~bootstrap/scss/alert
+//@import ~bootstrap/scss/progress
+//@import ~bootstrap/scss/media
+//@import ~bootstrap/scss/list-group
+//@import ~bootstrap/scss/close
+//@import ~bootstrap/scss/modal
+//@import ~bootstrap/scss/tooltip
+//@import ~bootstrap/scss/popover
+//@import ~bootstrap/scss/carousel
+@import ~bootstrap/scss/utilities
+//@import ~bootstrap/scss/print
+
+
+@import '~prismjs/themes/prism-coy.css'
+//@import '~prismjs/themes/prism-dark.css'
+//@import '~prismjs/themes/prism-funky.css'
+//@import '~prismjs/themes/prism-okaidia.css'
+//@import '~prismjs/themes/prism-solarizedlight.css'
+//@import '~prismjs/themes/prism-tomorrow.css'
+//@import '~prismjs/themes/prism-twilight.css'
+//@import '~prismjs/themes/prism.css'
+
+
+
+@import './sass/components/snotify'
+@import './sass/components/beelder'
+
+select,
+textarea, input, button,
+input:hover,
+textarea:hover,
+input:focus,
+textarea:focus
+  outline: none !important
+  box-shadow: none !important
+  // border: 1px solid $borderColor
+  border-color: $borderColor !important
+
+select,
+input[type='text'].form-control
+  height: 47px !important
+select
+  border:
+    radius: 0
+  -webkit-appearance: none
+.form-control
+  height: 47px !important
+  outline: none
+  font-size: 12px
+  color: $colorInput
+  border:
+    width: 1px !important
+
+body
+  font-family: 'Lato', sans-serif
+  background: $bodyBackground
+  padding:
+    top: 70px
+  color: $fontColor
+
+h1
+  font:
+    size: 20px
+    weight: 600
+
+.ngx-dnd-container,
+.ngx-dnd-container:nth-child(odd)
+  border: none
+  margin: 0
+
+  .ngx-dnd-item
+    border-color: $borderColor
+
+.ngx-dnd-container:nth-child(odd)
+  background-color: #fff !important
+
+.ngx-dnd-item:not(.has-handle):not(.move-disabled),
+.ngx-dnd-item.has-handle [ngxdraghandle],
+.ngx-dnd-item.has-handle [ngxDragHandle]
+  cursor: url('/assets/ico/drag.svg') !important
+  cursor: url('/assets/ico/drag.png') !important
+
+.root-container
+  .ngx-dnd-container
+    &:after
+      content: ""
+
+    &.gu-empty
+      border: 1px dashed $borderColor
+      min-height: 70px
+      position: relative
+      margin:
+        top: 12px
+
+      &:after
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        opacity: .5
+        font:
+          weight: bold
+          // family: "fontello"
+        content: ""
+        content: 'Drop your elements here!'
+
+.switch.switch-large.checked
+  background: $green !important
+.btn
+ border-width: 1px!important
+
+.btn.btn-green,
+.bzButton__green
+  background: $green
+  border-color: $green
+  color: white
+
+.btn.btn-primary
+  background: $blue
+  border-color: $blue
+
+.btn.btn-error
+  background: $red
+  border-color: $red
+
+.btn.btn-outline-error
+  border-color: $red
+  color: $red
+
+.btn.btn-outline-primary
+  border-color: $blue
+
+  &:hover
+    background: $blue
+
+//.elementsList
+//  margin:
+//    top: 20px
+//  padding:
+//    left: 100px
+
+.elementsList__buttons
+  button
+    font-size: 12px
+
+.elementsList__buttons--remove
+  border: none !important
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1)
+  margin:
+    left: 26px
+
+.elementsList
+  .root-container .ngx-dnd-container.gu-empty
+    border: none !important
+
+.listElement
+  padding: 9px 1px
+  font-size: 12px
+  height: 48px
+  margin:
+    bottom: 6px
+  background: $backgroundColor
+  border-left: 2px solid $blue
+  box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.1)
+
+.listElement__name
+  line-height: 30px
+
+.listHeader
+  font-size: 12px
+  padding: 15px 15px 0
+
+  span
+    cursor: pointer
+
+.listElement__value
+  padding: 10px 15px
+
+.listElementTable
+  width: 100%
+  border-collapse: separate
+  border-spacing: 0 5px
+
+  .listElement
+    td:first-child
+      position: relative
+
+      &:before
+        content: ''
+        position: absolute
+        width: 2px
+        height: 100%
+        background: $blue
+        top: 0
+        left: 0
+
+
+  td.listElement__removeConfirmation:first-child
+    position: relative
+    background: #f08181
+
+    &:before
+      content: ''
+      position: absolute
+      width: 2px
+      height: 100%
+      background: red
+      top: 0
+      left: 0
+// .listElementTablerow
+//   position: relative
+
+//   .listElement__red
+//     position: absolute
+//     left: 0
+//     top: 0
+//     width: 100%
+//     height: 100%
+
+.listFilters__p
+  margin:
+    bottom: 0
+  font:
+    size: 12px
+
+.listFilters__checkbox
+  margin:
+    right: 10px
+
+.listFilters__label
+  margin:
+    bottom: 0
+
+.listFilters__h2
+  cursor: pointer
+  font:
+    size: 14px
+
+#element_name
+  display: inline-block
+  width: 260px
+  height: 48px
+  font-size: 12px
+  line-height: 47px
+  color: #b7bbc1
+  padding:
+    left: 19px
+
+.elementsList__noPadding
+  padding: 0
+
+.elementsList__headers
+  margin:
+    bottom: 39px
+
+.elementsList__h1
+  margin-top: 10px
+
+
+.bzButton__big
+  border:
+    radius: 5px
+  font:
+    size: 16px
+    weight: 100
+  height: 44px
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.1)
+  padding:
+    left: 30px
+    right: 30px
+
+.bzButton__small
+  border:
+    radius: 5px
+  font:
+    size: 12px
+    weight: 100
+  height: 30px
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.1)
+  padding:
+    left: 20px
+    right: 20px
+
+.bzButton__small + .bzButton__small
+  margin:
+    left: 10px
+
+.bzButton__tiny
+  border:
+    radius: 5px
+  font:
+    size: 11px
+    weight: normal
+  height: 20px
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.1)
+  padding:
+    left: 10px
+    right: 10px
+
+.bzButton__blue
+  color: white
+  background: $blue
+  border: 1px solid $blue
+    radius: 5px
+    color: $blue !important
+
+.bzButton__red
+  color: white
+  background: $red
+  border: 1px solid $red
+    radius: 5px
+    color: $red !important
+
+.bzButton__blue__outline
+  color: $blue
+  //background: $blue
+  border: 1px solid $blue
+    radius: 5px
+    color: $blue !important
+
+.bzButton__red__noOutline
+  color: $red
+  //background: $blue
+  border: 1px solid white
+    radius: 5px
+    color: white !important
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15) !important
+
+.bzContent
+  margin:
+    top: 12px
+  padding:
+    left: 100px
+
+.bzLabel
+  font:
+    size: 12px
+
+
+
+
+.bzBadge
+
+
+pre, code, kbd, samp
+  font-size: 11px
+
+pre[class*="language-"]>code
+  border-left: none
+  box-shadow: none
+
+
+
+
+.window__background
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: rgba(0, 0, 0, 0.5)
+  z-index: 30
+
+.window__keeper
+  border:
+    radius: 5px
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  width: 664px
+  min-height: 400px
+  background: white
+
+.window__head
+  height: 46px
+  padding: 13px 19px
+  font:
+    size: 14px
+  background: #eaf4fa
+  border:
+    top-left-radius: 5px
+    top-right-radius: 5px
+
+.window__content
+
+.editorWindow__keeper
+
+.window__buttons
+  padding: 19px
+
+.composer
+  width: 100%
+  padding: 0px
+
+  &.minified
+    height: 25px
+
+
+
+.accordionElement
+
+.accordionElement__header
+  background: $colorAccordionBg
+  color: $colorAccordionFont
+
+  padding:
+    left: 22px
+    top: 10px
+  border:
+    bottom: 1px solid white
+  font:
+    size: 14px
+  height: 45px
+  position: relative
+
+  div
+    font-size: 10px
+    position: absolute
+    top: 15px
+    right: 20px
+
+
+
+
+
+.iframe
+  width: 100%
+  height: 800px
+  border: 1px solid $blue
+
+
+
+
+
+
+.revisionsList__element
+  padding: 4px
+  border-bottom: 1px solid $blue
+
+
+
+.button__saveprefs
+  margin:
+    top: 20px
+    left: 20px
+
+.preferences
+  border-bottom: 1px solid #e3e5e8
+
+
+
+
+.bzbPagesTree
+  position: fixed
+  top: 70px
+  left: 90px
+  width: 300px
+  height: calc(100% - 70px)
+  background: $white
+  padding:
+    left: 20px
+    top: 20px
+  z-index: 10
+  border:
+    right: 1px solid #e4e5e9
+
+.bzbPagesTree__container
+  padding:
+    right: 20px
+    left: 410px
+
+
+
+
+
+
+
+
+
+.preferences
+    padding: 15px
+
+.select__keeper
+    position: relative
+
+    .icon-arrow-down
+        font-size: 6px
+        top: 17px
+        right: 20px
+        position: absolute
+
+select
+    width: 100%
+    height: 42px !important
+    background: $white
+    color: #b7babf
+    padding: 0 13px
+    font-size: 14px
+
+
+
+
+
+
+
+.revisionsList__element
+    border:
+        bottom: 1px solid #e3e5e8
+    padding: 15px
+    position: relative
+
+.revision__id,
+.revision__createDate,
+.revision__timeAgo,
+.revision__author
+    font:
+        size: 12px
+
+.revision__id
+    color: $blue
+    text:
+        transform: uppercase
+        align: right
+    position: absolute
+    top: 15px
+    right: 15px
+
+.revision__createDate
+    color: #b7babf
+
+.revision__buttons
+    margin-top: 8px
+
+
+
+
+
+
+.searchElement__keeper
+    position: relative
+
+.icon-search_icon
+    top: 14px
+    left: 17px
+    position: absolute
+    font:
+        size: 26px
+    color: $colorFont
+
+.searchElement
+    padding: 0 20px 0 67px
+    height: 65px !important
+    font:
+        size: 14px
+    border: 1px solid $borderColor
+        right: none
+        left: none
+    width: 100%
+    color: $colorFont
+
+.searchElement__tagsNcats
+    padding: 10px
+    background: white
+
+    .string,
+    .category,
+    .tag
+        margin:
+            right: 5px
+        float: left
+        font:
+            size: 12px
+        color: white
+        display: inline-block
+        border:
+            radius: 5px
+        background: $blue
+        padding: 4px 7px 4px 7px
+        position: relative
+
+        // &:after
+        //     content: '\e80a'
+        //     right: 8px
+        //     top: 7px
+        //     position: absolute
+        //     font:
+        //         family: "fontello"
+        //         size: 8px
+
+    .category
+        background: $orange
+    .string
+        background: $green
+
+
+
+
+
+
+
+
+.listElement__red
+    background: $red
+    border-left: 2px solid red
+
+.bzButton__red
+    background: #eb5757
+    margin-right: 10px
+
+
+
+
+
+.listElement__red
+    background: $red
+    border-left: 2px solid #eb5757
+
+
+
+
+
+
+
+
+.header
+  background: $backgroundColor
+  position: fixed
+  display: flex
+  top: 0
+  left: 0
+  height: 70px
+  width: 100%
+  z-index: 5
+  border-bottom: 1px solid $borderColor
+
+.appOptions
+  flex: 1
+  padding: 10px 30px
+
+.appName
+  float: left
+
+.previewOptions
+  float: right
+
+h1.headerLogo
+  font:
+    style: italic
+    weight: lighter
+  padding:
+    top: 11px
+
+  span
+    font:
+      weight: bold
+
+.hamburger
+  flex: 0 0 90px
+  padding: 8px 12px
+  cursor: pointer
+  color: $blue
+  font-size: 20px
+  border-right: 1px solid $borderColor
+
+.userOptions
+  flex: 0 0 300px
+  text-align: right
+  position: relative
+  cursor: pointer
+
+  .icon-dropdown-arrow
+    position: absolute
+    font-size: 6px
+    top: 30px
+    right: 25px
+    color: $blue
+
+.userOptions__text
+  padding: 0 50px 24px 10px
+  font-size: 14px
+  display: inline-block
+
+.userOptions__image
+  border:
+    radius: 50%
+  display: inline-block
+  width: 40px
+  height: 40px
+  background: $borderColor
+  position: relative
+  top: 14px
+
+.menu
+  position: fixed
+  background: $backgroundColor
+  z-index: 5
+  left: 0px
+  top: 70px
+  width: 90px
+  height: calc(100% - 70px)
+  background: white
+  border:
+    right: 1px solid $borderColor
+
+  ul
+    list-style: none
+    padding: 0
+    margin: 0
+
+  [class^="icon-"]:before, [class*=" icon-"]:before
+    width: 100%
+    margin-left: 0
+
+  a
+    cursor: pointer
+    font-size: 11px
+    width: 100%
+    padding: 10px 10px
+    display: inline-block
+    border:
+      bottom: 1px solid $borderColor
+    text-align: center
+    color: #212529
+    opacity: .8
+
+    span
+      font-size: 35px
+
+    &:hover
+      background: $blue
+      color: $white !important
+
+      span
+        color: $white
+
+.icon-editor_hamburger
+  padding:
+    top: 11px
+    left: 10px
+
+
+.userMenu
+  width: 163px
+  z-index: 10
+  position: absolute
+  right: 0
+  background: white
+  box-shadow: 0 14px 34px 0 rgba(41, 41, 41, 0.35)
+
+.userMenu__logout
+  background: $blue
+  color: white
+  height: 31px
+  padding:
+    left: 37px
+  position: relative
+  cursor: pointer
+
+  span
+    line-height: 31px
+
+.userMenu__logout__icon
+  position: absolute
+  top: 3px
+  left: 11px
+
+.userMenu__logout__text
+  font:
+    size: 12px
+
+
+
+
+.label
+  font:
+    size: 12px
+  color: $fontColor
+
+.elementForm__editors
+  position: relative
+  margin:
+    top: 20px
+
+.elementForm__ingridients
+  background: #e3e5e8
+  display: inline-block
+  position: absolute
+  height: 43px
+  top: -11px
+  right: 15px
+  z-index: 10
+
+
+.elementForm__ingridient
+  width: 43px
+  height: 42px
+  padding: 3px 11px
+  font-size: 25px
+  display: inline-block
+
+  &.selected
+    color: white
+    background: $blue
+
+.elementForm__variables
+  margin:
+    bottom: 50px
+
+.elementForm__variables__form
+  margin:
+    top: 23px
+
+textarea
+  height: 400px !important
+  resize: none
+
+
+
+
+// User list
+
+
+.listElement
+  padding: 9px 1px
+  font-size: 12px
+  height: 48px
+  margin:
+    bottom: 6px
+  background: $backgroundColor
+  border-left: 2px solid $blue
+
+.listElement__name
+  line-height: 30px
+
+#element_name
+  display: inline-block
+  width: 260px
+  height: 48px
+  font-size: 12px
+  line-height: 47px
+  color: #b7bbc1
+  padding:
+    left: 19px
+
+
+.tooltip
+  background: #212529
+  font:
+    size: 10px

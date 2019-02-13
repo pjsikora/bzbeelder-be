@@ -1,18 +1,15 @@
-import  {Component} from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+// import reduxPromise from 'redux-promise';
+import reducers from './modules/reducers';
 
-class Root extends Component {
-  constructor(props) {
-    super(props);
-    this.progressRoot = document.getElementById('bzb');
-  }
+export default ({ children, initialState = {} }) => {
+  const store = createStore(
+    reducers,
+    // initialState,
+    // applyMiddleware(reduxPromise)
+  );
 
-  render() {
-    return ReactDOM.createPortal(
-        this.props.children,
-        this.progressRoot
-    );
-  }
-}
-
-export default Root;
+  return <Provider store={store}>{children}</Provider>;
+};
