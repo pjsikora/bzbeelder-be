@@ -1,7 +1,7 @@
 'use strict';
 const CRUDHelper = require('./CRUDHelper');
 
-const CRUDController = (function () {
+const CRUDController = (function() {
   let MODEL;
 
   function CRUDController(model) {
@@ -9,85 +9,85 @@ const CRUDController = (function () {
   }
 
   CRUDController.prototype = {
-    list: function (req, res) {
+    list: function(req, res) {
       CRUDHelper.list(MODEL, {})
-        .then((arr) => {
-          res
-            .status(200)
-            .json(arr);
-        })
-        .catch((err) => {
-          res
-            .status(500)
-            .json(err);
-        });
+          .then((arr) => {
+            res
+                .status(200)
+                .json(arr);
+          })
+          .catch((err) => {
+            res
+                .status(500)
+                .json(err);
+          });
     },
 
-    create: function (req, res) {
+    create: function({ body }, res) {
       CRUDHelper
-        .create(MODEL, req.body)
-        .then((el) => {
-            res
-              .status(200)
-              .json(el);
-          }
-        )
-        .catch((err) => {
-            res
-              .status(500)
-              .json(err);
-          }
-        );
+          .create(MODEL, body)
+          .then((el) => {
+                res
+                    .status(200)
+                    .json(el);
+              },
+          )
+          .catch((err) => {
+                res
+                    .status(500)
+                    .json(err);
+              },
+          );
     },
 
-    read: function (req, res) {
+    read: function({ params }, res) {
       CRUDHelper
-        .read(MODEL, req.params.id)
-        .then((el) => {
-            res
-              .status(200)
-              .json(el);
-          }
-        )
-        .catch((err) => {
-            res
-              .status(500)
-              .json(err);
-          }
-        );
+          .read(MODEL, params.id)
+          .then((el) => {
+                res
+                    .status(200)
+                    .json(el);
+              },
+          )
+          .catch((err) => {
+                res
+                    .status(500)
+                    .json(err);
+              },
+          );
     },
 
-    update: function (req, res) {
+    update: function({ params, body }, res) {
       CRUDHelper
-        .update(MODEL, req.params.id, req.body)
-        .then((el) => {
-          res
-            .status(200)
-            .json(el);
-        })
-        .catch((err) => {
-          res
-            .status(500)
-            .json(err);
-        });
+          .update(MODEL, params.id, body)
+          .then((el) => {
+            res
+                .status(200)
+                .json(el);
+          })
+          .catch((err) => {
+            res
+                .status(500)
+                .json(err);
+          });
     },
 
-    delete: function (req, res) {
+    delete: function({ params }, res) {
       CRUDHelper
-        .delete(MODEL, req.params.id)
-        .then((el) => {
-          res
-            .status(200)
-            .json(el);
-        })
-        .catch((err) => {
-          res
-            .status(500)
-            .json(err);
-        });
-    }
+          .delete(MODEL, params.id)
+          .then((el) => {
+            res
+                .status(200)
+                .json(el);
+          })
+          .catch((err) => {
+            res
+                .status(500)
+                .json(err);
+          });
+    },
 
-  }
+  };
 
   return CRUDController;
 })();

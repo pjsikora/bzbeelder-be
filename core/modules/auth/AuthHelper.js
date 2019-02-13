@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
-const bcrypt = require("bcrypt-nodejs");
-const jwt = require("jsonwebtoken");
-const config = require("../../../config");
-const User = require("../user/models/User");
-const UserTokenHelper = require("../user/helpers/UserTokenHelper");
+const bcrypt = require('bcrypt-nodejs');
+const jwt = require('jsonwebtoken');
+const config = require('../../../config');
+const User = require('../user/models/User');
+const UserTokenHelper = require('../user/helpers/UserTokenHelper');
 
 const AuthHelper = {
   register: (email, password) => {
@@ -14,14 +14,14 @@ const AuthHelper = {
       var user = new User({
         email: email,
         password: hashedPassword,
-        isActive: false
+        isActive: false,
       });
 
       user.save(function(err, el) {
         if (err) {
           reject(err);
         } else {
-          resolve({ message: "User created" });
+          resolve({ message: 'User created' });
         }
       });
     });
@@ -36,24 +36,24 @@ const AuthHelper = {
         if (!user) {
           reject({
             success: false,
-            message: "Authentication failed. User not found."
+            message: 'Authentication failed. User not found.',
           });
         } else if (user) {
           if (!user.isActive) {
             reject({
               success: false,
-              message: "Authentication failed. User isn't active."
+              message: 'Authentication failed. User isn\'t active.',
             });
           } else {
             bcrypt.compare(password, user.password, (err, result) => {
               if (!err) {
                 if (result === true) {
                   const payload = {
-                    admin: user.admin
+                    admin: user.admin,
                   };
 
                   var token = jwt.sign(payload, config.secret, {
-                    expiresIn: "1440m" // expires in 24 hours
+                    expiresIn: '1440m', // expires in 24 hours
                   });
 
                   const decoded = jwt.decode(token);
@@ -62,18 +62,18 @@ const AuthHelper = {
                     uid: user._id,
                     iat: parseInt(decoded.iat),
                     exp: parseInt(decoded.exp),
-                    token: token
+                    token: token,
                   }).then(resp => {
                     resolve({
                       success: true,
-                      message: "Enjoy your token!",
-                      token: token
+                      message: 'Enjoy your token!',
+                      token: token,
                     });
                   });
                 } else {
                   reject({
                     success: false,
-                    message: "Authentication failed. Wrong password."
+                    message: 'Authentication failed. Wrong password.',
                   });
                 }
               } else {
@@ -86,7 +86,7 @@ const AuthHelper = {
     });
   },
 
-  logout: () => {}
+  logout: () => {},
 };
 
 module.exports = AuthHelper;

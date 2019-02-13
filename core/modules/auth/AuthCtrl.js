@@ -1,33 +1,34 @@
 const AuthHelper = require('./AuthHelper');
 
 const Ctrl = {
-  register: async (req, res) => {
-    const email = req.body.email;
-    const password = req.body.password;
+  register: async ({ body }, res) => {
+    const email = body.email;
+    const password = body.password;
 
     try {
       const response = await AuthHelper.register(email, password);
-      
-      res.json(response)
-    } catch(e) {
-      res.json(e)
+
+      res.json(response);
+    } catch (e) {
+      res.json(e);
     }
   },
 
-  login: async (req, res) => {
-    const email = req.body.email;
-    const password = req.body.password;
+  login: async ({ body }, res) => {
+    const email = body.email;
+    const password = body.password;
 
     try {
       const response = await AuthHelper.login(email, password);
-      res.json(response)
+
+      res.json(response);
     } catch (e) {
-      res.json(e)
+      res.json(e);
     }
   },
 
   logout: () => {
-  }
-}
+  },
+};
 
 module.exports = Ctrl;

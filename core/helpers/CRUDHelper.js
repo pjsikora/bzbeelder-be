@@ -1,5 +1,5 @@
-"use strict";
-const mongoose = require("mongoose");
+'use strict';
+const mongoose = require('mongoose');
 
 const CRUDHelper = {
   /**
@@ -21,18 +21,18 @@ const CRUDHelper = {
   listCurried: (Model) => async (condition, config) => {
     let query = Model.find(condition);
 
-    const itemsToCount = await new Promise((resolve, reject)=> {
+    const itemsToCount = await new Promise((resolve, reject) => {
       Model.count(condition, (err, length) => {
         if (err) {
           reject(err);
         } else {
           resolve(length);
         }
-      })
+      });
     });
 
     (typeof config.sort !== 'undefined') ? query.sort(config.sort) : null;
-    (typeof config.fields === 'string') ? query.select(config.fields.split(",").join(" ")) : null;
+    (typeof config.fields === 'string') ? query.select(config.fields.split(',').join(' ')) : null;
     (typeof config.limit !== 'undefined') ? query.limit(config.limit) : null;
     (typeof config.offset !== 'undefined') ? query.skip(config.offset) : null;
 
@@ -41,7 +41,7 @@ const CRUDHelper = {
         if (err) {
           reject(err);
         } else {
-          resolve({items, total: itemsToCount});
+          resolve({ items, total: itemsToCount });
         }
       });
     });
@@ -95,7 +95,7 @@ const CRUDHelper = {
    */
   create: function(Model, obj, foreignsArr) {
     var newObj = {},
-      newItem;
+        newItem;
 
     for (var k in obj) {
       if (obj.hasOwnProperty(k)) {
@@ -103,7 +103,7 @@ const CRUDHelper = {
       }
     }
 
-    if (typeof foreignsArr !== "undefined") {
+    if (typeof foreignsArr !== 'undefined') {
       foreignsArr.forEach(f => {
         if (mongoose.Types.ObjectId.isValid(f)) {
           newObj[f] = mongoose.Types.ObjectId(f);
@@ -204,7 +204,7 @@ const CRUDHelper = {
       }
     }
 
-    if (typeof foreignsArr !== "undefined") {
+    if (typeof foreignsArr !== 'undefined') {
       foreignsArr.forEach(f => {
         if (mongoose.Types.ObjectId.isValid(f)) {
           newObj[f] = mongoose.Types.ObjectId(f);
@@ -242,7 +242,6 @@ const CRUDHelper = {
     });
   },
 
-
   /**
    * List all elements
    * @param Model
@@ -255,15 +254,14 @@ const CRUDHelper = {
   listAllByDate: async (Model) => {
     let query = Model.find();
 
-
-    query.sort({create_date: -1});
+    query.sort({ create_date: -1 });
 
     return new Promise((resolve, reject) => {
       query.exec((err, items) => {
         if (err) {
           reject(err);
         } else {
-          resolve({items});
+          resolve({ items });
         }
       });
     });
@@ -298,7 +296,7 @@ const CRUDHelper = {
         }
       });
     });
-  }
+  },
 };
 
 module.exports = CRUDHelper;

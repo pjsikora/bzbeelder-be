@@ -78,7 +78,7 @@ const Server = {
           // console.log(err);
         });
 
-    const serverPort = (typeof config.port !== 'undefined') ? config.port : 4000;
+    const serverPort = (typeof config.port !== 'undefined') ? config.port : 4040;
     server = app.listen(serverPort, () => {
       console.log('http://localhost:' + serverPort);
     });

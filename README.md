@@ -23,3 +23,20 @@ https://github.com/fedojo/bzbeelder-fe
 
 ## Links
 http://fedojo.com
+
+
+## Testing
+1. Testing :
+```
+npm run test
+```
+
+2. Coverage:
+```
+npm run coverage
+```
+
+3. Testing with code coverage:
+```
+npm run testfull
+```

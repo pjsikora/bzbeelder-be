@@ -2,20 +2,20 @@ var fs = require('fs');
 var path = require('path');
 var basePath = './';
 
-function result_callback (results) {
+function result_callback(results) {
   results.forEach((obj) => {
   });
 };
 
-const listAvailableThemes = function (path) {
+const listAvailableThemes = function(path) {
   return new Promise((resolve, reject) => {
-    fs.readdir(path, function (err, items) {
+    fs.readdir(path, function(err, items) {
       if (err) {
         reject(err);
       } else {
         var themes = {};
 
-        items.forEach(function (el) {
+        items.forEach(function(el) {
           let info = getThemeInfo(el);
 
           if (info !== -1) {
@@ -29,13 +29,13 @@ const listAvailableThemes = function (path) {
   });
 };
 
-const setTheme = function () {
+const setTheme = function() {
 };
-const currentTheme = function () {
+const currentTheme = function() {
 };
 
-const getThemeInfo = function (nameOfDir) {
-  fs.readFile('./themes/' + nameOfDir + '/info.json', 'utf8', function (err, data) {
+const getThemeInfo = function(nameOfDir) {
+  fs.readFile('./themes/' + nameOfDir + '/info.json', 'utf8', function(err, data) {
     if (err) {
       return -1;
     }
@@ -46,7 +46,7 @@ const getThemeInfo = function (nameOfDir) {
 let Helper = {
   listAvailableThemes: listAvailableThemes,
   setTheme: setTheme,
-  currentTheme: currentTheme
+  currentTheme: currentTheme,
 };
 
 module.exports = Helper;
