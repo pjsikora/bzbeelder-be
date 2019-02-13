@@ -1,6 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
 .DS_Store
+.nyc_output
+
 node_modules
 public/*
 uploads/*
