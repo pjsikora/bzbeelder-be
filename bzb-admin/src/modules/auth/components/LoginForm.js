@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { connect } from 'react-redux';
+// import axios from "axios";
+import {changeAuth} from '../store/AuthActions';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -9,13 +11,11 @@ class LoginForm extends Component {
       password: ""
     };
   }
-  
-  handleSubmit = async e => {
+
+  handleSubmit = e => {
+    e.preventDefault();
     const { email, password } = this.state;
-    const login = await axios.post("http://localhost:4040/api/auth/login", {
-      email,
-      password
-    });
+    this.props.dispatchLogin({email, password})
   };
 
   handleChange = ({ target }) => {
@@ -25,6 +25,14 @@ class LoginForm extends Component {
   };
 
   render() {
+    const isError = false;
+    const errorMsg = (
+      <div class="loginForm__error">
+        <span class="icon-validation_alert-triangle" />
+        Please verify your email and password
+      </div>
+    );
+
     return (
       <div className="loginForm__keeper animated fadeInUp">
         <form
@@ -35,28 +43,27 @@ class LoginForm extends Component {
             Hello! <br />
             Sign in to get started{" "}
           </h1>
-          <div class="form-group loginForm__formGroup">
-            <div class="icon-login_icon loginForm__icon" />
+          <div className="form-group loginForm__formGroup">
+            <div className="icon-login_icon loginForm__icon" />
             <input
-              autofocus=""
+              autoFocus=""
               className="form-control loginForm__formControl"
               onChange={this.handleChange}
-              //   id="inputEmail"
               placeholder="Email address"
-              name="login"
+              name="email"
             />
           </div>
           <div className="form-group loginForm__formGroup">
             <div className="icon-password_icon loginForm__icon" />
             <input
-              class="form-control loginForm__formControl"
-              //   id="inputPassword"
+              className="form-control loginForm__formControl"
               onChange={this.handleChange}
               placeholder="Password"
               type="password"
               name="password"
             />
           </div>
+          {this.props.authState.loginError && errorMsg}
           <div className="loginForm__forgotPassword">
             <span>Forgot password</span>
           </div>
@@ -70,4 +77,14 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+function mapStateToProps(state) {
+  return { authState: state.auth };
+}
+
+const mapDispatchToProps = dispatch => ({
+  dispatchLogin: loginData => {
+    dispatch(changeAuth(loginData))
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

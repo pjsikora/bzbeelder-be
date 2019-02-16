@@ -3,13 +3,16 @@ import { Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PostList from './post/components/PostList';
 import PostForm from './post/components/PostForm';
-import LoginForm from './auth/LoginForm';
+import LoginForm from './auth/components/LoginForm';
 // import * as actions from 'actions';
 
 class App extends Component {
   renderHeader() {
     return (
       <ul>
+        <li>
+          <Link to="/">Login</Link>
+        </li>
         <li>
           <Link to="/post/">List of posts</Link>
         </li>

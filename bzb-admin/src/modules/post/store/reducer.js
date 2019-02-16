@@ -1,12 +1,10 @@
-// import { SAVE_POST, FETCH_POST } from 'actions/types';
-
 import {
   SAVE_POST_SUCCESS,
   FETCH_POST_SUCCESS,
   FETCH_POSTS_SUCCESS,
   REMOVE_POST_SUCCESS,
   UPDATE_POST_SUCCESS
-} from "./actions";
+} from "./types";
 
 export default function(state = [], action) {
   switch (action.type) {

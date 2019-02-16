@@ -1,19 +1,28 @@
-export const SAVE_POST = 'POST / SAVE';
-export const SAVE_POST_SUCCESS = 'POST / SAVE - SUCCESS';
-export const SAVE_POST_ERROR = 'POST / SAVE - ERROR';
+import {
+    SAVE_POST_SUCCESS, 
+    FETCH_POSTS_SUCCESS,
+    FETCH_POST_SUCCESS,
+    REMOVE_POST_SUCCESS,
+    UPDATE_POST_SUCCESS
+} from './types';
 
-export const FETCH_POSTS = 'POSTS / FETCH';
-export const FETCH_POSTS_SUCCESS = 'POSTS / FETCH - SUCCESS';
-export const FETCH_POSTS_ERROR = 'POSTS / FETCH - ERROR';
+export function savePost (post) {
+    return {
+        type: SAVE_POST_SUCCESS,
+        payload: post
+    }
+}
 
-export const FETCH_POST = 'POST / FETCH';
-export const FETCH_POST_SUCCESS = 'POST / FETCH - SUCCESS';
-export const FETCH_POST_ERROR = 'POST / FETCH - ERROR';
+export function fetchPosts (posts) {
+    return {
+        type: FETCH_POSTS_SUCCESS,
+        payload: posts
+    }
+}
 
-export const REMOVE_POST = 'POST / REMOVE';
-export const REMOVE_POST_SUCCESS = 'POST / REMOVE - SUCCESS';
-export const REMOVE_POST_ERROR = 'POST / REMOVE - ERROR';
-
-export const UPDATE_POST = 'POST / UPDATE';
-export const UPDATE_POST_SUCCESS = 'POST / UPDATE - SUCCESS';
-export const UPDATE_POST_ERROR = 'POST / UPDATE - ERROR';
+export function fetchPost (post) {
+    return {
+        type: FETCH_POST_SUCCESS,
+        payload: post
+    }
+}

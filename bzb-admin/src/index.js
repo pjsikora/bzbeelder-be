@@ -7,7 +7,7 @@ import './style.scss'
 // import '../node_modules/codemirror/lib/codemirror.css'
 import 'codemirror/lib/codemirror.css';
 // import 'codemirror/theme/material.css';
-import LoginForm from './modules/auth/LoginForm';
+import LoginForm from './modules/auth/components/LoginForm';
 
 ReactDOM.render(
   <Root>
